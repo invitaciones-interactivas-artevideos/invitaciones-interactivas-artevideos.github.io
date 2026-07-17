@@ -1,1 +1,914 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catálogo de Invitaciones Interactivas Web</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  /* COLORES FACILES DE CAMBIAR
+     Tambien podes cambiarlos abajo, dentro de CONFIG > colores. */
+  --bg: #090909;
+  --bg-2: #151515;
+  --panel: #141414;
+  --panel-soft: #1d1d1d;
+  --text: #f7f2ec;
+  --muted: #b9afa5;
+  --line: rgba(255,255,255,0.14);
+  --accent: #e50914;
+  --accent-2: #f0c36a;
+  --button-text: #ffffff;
+  --light-button: #ffffff;
+  --light-button-text: #111111;
+  --radius: 8px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, color-mix(in srgb, var(--accent) 18%, transparent), transparent 32rem),
+    linear-gradient(180deg, var(--bg-2) 0%, var(--bg) 36%, #050505 100%);
+  color: var(--text);
+  font-family: "Montserrat", sans-serif;
+}
+
+a {
+  color: inherit;
+}
+
+.site-shell {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+/* ============================
+   TOPBAR Y CATEGORIAS(CORREGIDO)
+   ============================ */
+.topbar {
+  position: sticky;
+  top: 0;
+  height: 80px; /* Altura estricta para sincronizar con category-bar */
+  z-index: 20;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(18px);
+  display: flex;
+  align-items: center;
+}
+
+.topbar-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  max-width: 100%;
+  min-width: 0;
+  text-align: left;
+}
+
+.brand-logo {
+  flex: 0 0 auto;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  object-fit: contain;
+  background: #ffffff;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.brand-text {
+  min-width: 0;
+}
+
+.brand-name {
+  display: block;
+  max-width: min(76vw, 520px);
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.45rem, 4vw, 2.15rem);
+  font-weight: 700;
+  line-height: 1.05;
+
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+}
+
+.brand-subtitle {
+  display: block;
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.hero {
+  padding: clamp(42px, 7vw, 76px) 0 24px;
+}
+
+.hero-eyebrow {
+  color: var(--accent-2);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-align:center;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  max-width: 900px;
+  margin: 14px auto;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.1rem, 7vw, 5rem);
+  line-height: 1;
+  text-align: center;
+}
+
+.hero p {
+  max-width: 900px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: clamp(1rem, 2vw, 1.18rem);
+  line-height: 1.7;
+  text-align: center;
+}
+
+/* ============================
+   BARRA DE CATEGORÍAS FIJA
+   ============================ */
+.category-bar {
+  position: sticky;
+  top: 80px; /* Exactamente el height de la topbar */
+  z-index: 19; /* Por encima de las tarjetas, debajo del header */
+  padding: 14px 0;
+  background: var(--bg); /* Fondo sólido para que no trasluzcan las fotos */
+  border-bottom: 1px solid var(--line);
+}
+
+.category-tabs {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  padding-bottom: 2px;
+}
+
+.category-tab {
+  flex: 0 0 auto;
+  min-height: 42px;
+  padding: 0 18px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255,255,255,0.07);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.category-tab.active {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--button-text);
+}
+
+.catalog {
+  padding: 24px 0 72px;
+}
+
+.catalog-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.catalog-title {
+  margin: 0;
+  font-size: clamp(1.2rem, 3vw, 1.75rem);
+  line-height: 1.2;
+}
+
+.catalog-count {
+  color: var(--muted);
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.invitation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 18px;
+  align-items: start;
+}
+
+.invite-card {
+  min-width: 0;
+}
+
+/* ============================
+   TARJETAS Y ETIQUETAS
+   ============================ */
+.preview-link {
+  position: relative;
+  display: block;
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, var(--panel-soft), var(--panel));
+  border: 1px solid rgba(0,0,0,0.08); /* Corregido error de anidamiento CSS */
+  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+  text-decoration: none;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.preview-link:hover {
+  transform: translateY(-6px) scale(1.015);
+  border-color: color-mix(in srgb, var(--accent) 80%, transparent);
+  box-shadow: 0 22px 50px rgba(0,0,0,0.5);
+}
+
+.preview-link img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+.preview-link:hover img {
+  transform: scale(1.06);
+}
+
+.preview-fallback {
+  position: absolute;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  color: var(--muted);
+  text-align: center;
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.preview-link.image-error img {
+  display: none;
+}
+
+.preview-link.image-error .preview-fallback {
+  display: flex;
+}
+
+.category-chip {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  z-index: 2;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.68);
+  color: #ffffff;
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Nueva etiqueta personalizable */
+.custom-tag {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  z-index: 3;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--button-text);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.card-info {
+  padding: 12px 2px 0;
+}
+
+.invite-title {
+  margin: 0 0 10px;
+  color: var(--text);
+  font-size: 0.92rem;
+  line-height: 1.35;
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+.demo-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: var(--light-button);
+  color: var(--light-button-text);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.empty-state {
+  display: none;
+  padding: 44px 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255,255,255,0.05);
+  color: var(--muted);
+  text-align: center;
+}
+
+/* ============================
+   FOOTER Y BOTONES
+   ============================ */
+.footer {
+  padding: 36px 0 54px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  text-align: center;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.contact-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 800;
+  text-decoration: none;
+  background: var(--text); /* Fondo oscuro/legible */
+  color: var(--bg); /* Texto color fondo */
+  border: 2px solid transparent;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.contact-btn:hover {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--text);
+  transform: translateY(-2px);
+}
+
+.back-to-top {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 30;
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--button-text);
+  font-size: 1.45rem;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.38);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(12px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+@media (min-width: 1180px) {
+  .invitation-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .site-shell {
+    width: min(100% - 22px, 1180px);
+  }
+
+  .topbar, .category-bar {
+    height: 70px;
+  }
+  .category-bar {
+    top: 70px; /* Ajuste preciso para móviles */
+  }
+
+  .brand-logo {
+    width: 46px;
+    height: 46px;
+  }
+
+  .brand-name {
+    font-size: clamp(1.25rem, 7vw, 1.75rem);
+  }
+
+  .brand-subtitle {
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+  }
+
+  .invitation-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .catalog-head {
+    align-items: start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 380px) {
+  .site-shell {
+    width: min(100% - 16px, 1180px);
+  }
+
+  .brand {
+    gap: 10px;
+  }
+
+  .brand-logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .brand-subtitle {
+    display: none;
+  }
+
+  .hero {
+    padding-top: 34px;
+  }
+
+  .invite-title {
+    font-size: 0.82rem;
+  }
+
+  .demo-btn {
+    width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="site-shell topbar-inner">
+    <div class="brand">
+      <img class="brand-logo" id="logo" src="logo.png" alt="Logo">
+      <div class="brand-text">
+        <span class="brand-name" id="brand-name"></span>
+        <span class="brand-subtitle">Invitaciones interactivas</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="site-shell">
+    <div class="hero-eyebrow">CATÁLOGO DIGITAL</div>
+
+<h1>Elegí tu invitación y explorá la demo.</h1>
+
+<p>
+Invitaciones web interactivas, originales y totalmente personalizadas para que tu evento comience desde el primer clic.
+</p>
+
+<p><strong>La invitación estándar incluye:</strong></p>
+
+<p>
+🎵 Música de fondo personalizada.<br>
+⏳ Cuenta regresiva hasta el gran día.<br>
+📍 Ubicación con GPS y acceso directo a Google Maps.<br>
+📷 Galería de 4 fotografías.<br>
+✅ Confirmación de asistencia mediante formulario, con listado de invitados y posibilidad de indicar restricciones alimenticias.<br>
+🎁 Sección de regalos con datos para transferencia bancaria o regalo colectivo.
+</p>
+
+<p><strong>Además, podés agregar:</strong></p>
+
+<p>
+✨ Galería ampliada de hasta 12 fotografías.<br>
+📸 Álbum compartido para que tus invitados suban las fotos y videos del evento.<br>
+🎶 Playlist colaborativa mediante Spotify o formulario de sugerencias.<br>
+📱 Enlace a tu cuenta de Instagram y hashtag personalizado.<br>
+💬 Cualquier información adicional que quieras compartir con tus invitados, adaptando la invitación a tu estilo.
+</p>
+
+    </div>
+  </section>
+
+  <nav class="category-bar" aria-label="Categorias">
+    <div class="site-shell">
+      <div class="category-tabs" id="category-tabs"></div>
+    </div>
+  </nav>
+
+  <section class="catalog" id="catalogo">
+    <div class="site-shell">
+      <div class="catalog-head">
+        <h2 class="catalog-title" id="catalog-title">Todas</h2>
+        <div class="catalog-count" id="catalog-count"></div>
+      </div>
+      <div class="invitation-grid" id="invitation-grid"></div>
+      <div class="empty-state" id="empty-state">Todavia no hay modelos cargados en esta categoria.</div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="site-shell">
+    <h3 style="color: var(--text); margin-bottom: 20px; font-size: 1.1rem;">Contáctanos</h3>
+    <div class="footer-links">
+      <a id="footer-whatsapp" href="#" target="_blank" rel="noopener" class="contact-btn">
+        <span id="footer-whatsapp-text">Pedidos por Whatsapp</span>
+      </a>
+      <a id="instagram-footer" href="#" target="_blank" rel="noopener" class="contact-btn">
+        <span id="instagram-footer-text">Instagram</span>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" id="back-to-top" type="button" aria-label="Volver arriba">&uarr;</button>
+
+<script>
+/* ==========================================================================
+   CONFIGURACION FACIL
+   Cambia tu marca, links, colores e invitaciones desde este bloque.
+========================================================================== */
+const CONFIG = {
+  marca: "ARTEVIDEOS Invitaciones Digitales",
+  logo: "logo.png",
+
+  whatsappTexto: "Pedidos por Whatsapp 096116630",
+  whatsappLink: "https://wa.me/59896116630",
+
+  instagramTexto: "Instagram",
+  instagramLink: "https://www.instagram.com/invitaciones_artevideos/",
+
+  colores: {
+    fondo: "#f8f4f1",
+    fondoSuperior: "#f4e7ea",
+    tarjeta: "#ffffff",
+    tarjetaSuave: "#faf7f5",
+    texto: "#2d2426",
+    textoSuave: "#6f5f63",
+    principal: "#d27a8c",
+    secundario: "#c89b5e",
+    textoBoton: "#ffffff"
+  },
+
+  categorias: [
+    { id: "todas", nombre: "Todas" },
+    { id: "15", nombre: "15 años" },
+    { id: "bodas", nombre: "Bodas" },
+    { id: "infantiles", nombre: "Infantiles" }
+  ],
+
+  invitaciones: [
+    {
+      nombre: "15 Años Mariposas-1",
+      categoria: "15",
+      etiqueta: "Animada", // <--- AQUI ESTÁ LA NUEVA ETIQUETA
+      imagen: "15 mariposas doradas.png",
+      link: "https://invitaciones-interactivas-artevideos.github.io/15-modelo-3-mariposas-doradas/"
+    },
+    {
+      nombre: "15 años Cenicienta",
+      categoria: "15",
+      etiqueta: "Animada",
+      imagen: "15 cenicienta.png",
+      link: "https://invitaciones-interactivas-artevideos.github.io/cenicienta/"
+    },
+    {
+      nombre: "15 Años Mariposas-2",
+      categoria: "15",
+      etiqueta: "animada", // Si lo dejas vacío, no se muestra nada
+      imagen: "15 mariposas violeta.png",
+      link: "https://invitaciones-interactivas-artevideos.github.io/15-modelo-5-mariposas-fondo-azul-2/"
+    },
+    {
+      nombre: "15 Años Mariposas-3",
+      categoria: "15",
+      etiqueta: "animada", 
+      imagen: "15 mariposas celestes.png",
+      link: "https://invitaciones-interactivas-artevideos.github.io/15-modelo-4-mariposas-celeste-amarillas/"
+    },
+     {
+      nombre: "15 Años Fotografía",
+      categoria: "15",
+      imagen: "15 foto1.png",
+      link: "https://invitaciones-interactivas-artevideos.github.io/15-a-os-foto/"
+    },
+     {
+      nombre: "15 Años Azul",
+      categoria: "15",
+      imagen: "azul.png",
+      link: "https://invitaciones-interactivas-artevideos.github.io/15-azul/"
+    },
+    {
+      nombre: "15 Años Stray Kids",
+      categoria: "15",
+      etiqueta: "animada", 
+      imagen: "15 straykids.png",
+      link: "https://invitaciones-interactivas-artevideos.github.io/15-straykids/"
+    },
+
+    {
+      nombre: "15 Años La Princesa y el sapo",
+      categoria: "15",
+      etiqueta: "animada", 
+      imagen: "pysapo.png",
+      link: "https://invitaciones-interactivas-artevideos.github.io/Princesa-y-sapo-/"
+     },
+
+    {
+      nombre: "15 Años Floral-1",
+      categoria: "15",
+      etiqueta: "animada", 
+      imagen: "15 floral 2.png",
+      link: "https://invitaciones-interactivas-artevideos.github.io/15-modelo1-flores-del-cerezo/"
+    },
+    {
+      nombre: "15 Años Floral-2",
+      categoria: "15",
+      etiqueta: "animada", 
+      imagen: "15 floral 1.png",
+      link: "https://invitaciones-interactivas-artevideos.github.io/15-modelo2-rosas/"
+    },
+    {
+      nombre: "15 Años Sobre-1",
+      categoria: "15",
+      imagen: "sobrerosa.png",
+      link: "https://invitaciones-interactivas-artevideos.github.io/15-sobre/#evento"
+    },
+    {
+      nombre: "15 Años Sobre-2",
+      categoria: "15",
+      imagen: "sobrelavanda.png",
+      link: "https://invitaciones-interactivas-artevideos.github.io/15-sobre-2/"
+    },
+    {
+      nombre: "15 Años rosas 2",
+      categoria: "15",
+      etiqueta: "animada", 
+      imagen: "rosas.png",
+      link: "https://invitaciones-interactivas-artevideos.github.io/15-a-os-rosas/"
+    },
+
+    {
+      nombre: "15 años editorial",
+      categoria: "15",
+      imagen: "15edi.png",
+      link: "https://invitaciones-interactivas-artevideos.github.io/15-papel-rasgado-/"
+    },
+ 
+    {
+      nombre: "Boda-1",
+      categoria: "bodas",
+      imagen: "bodas 1.png",
+      link: "https://invitaciones-interactivas-artevideos.github.io/Bodas-invitacion-interactiva/"
+    },
+   {
+      nombre: "Boda-dorado",
+      categoria: "bodas",
+     etiqueta: "animada", 
+      imagen: "bodas3.jpeg",
+      link: "https://invitaciones-interactivas-artevideos.github.io/bodas-fondo-dorado/"
+    },
+    {
+      nombre: "Boda-2",
+      categoria: "bodas",
+      imagen: "boda2.png",
+      link: "https://invitaciones-interactivas-artevideos.github.io/bodas-invitacion-interactiva-2/"
+    },
+    {
+      nombre: "Boda-Hojas",
+      categoria: "bodas",
+      etiqueta: "animada", 
+      imagen: "hojas.png",
+      link: "https://invitaciones-interactivas-artevideos.github.io/boda-hojas/"
+    },
+    {
+      nombre: "Boda-rosas",
+      categoria: "bodas",
+      etiqueta: "animada", 
+      imagen: "Rosas1.png",
+      link: "https://invitaciones-interactivas-artevideos.github.io/bodas-floral/"
+    },
+
+ {
+      nombre: "Boda-Editorial",
+      categoria: "bodas",
+      etiqueta: "", 
+      imagen: "edito.png",
+      link: "https://invitaciones-interactivas-artevideos.github.io/Bodas-Papel-rasgado-/"
+    },
+
+  
+     { 
+      nombre: "Boda-sobre 1",
+      categoria: "bodas",
+      imagen: "sobre1.png",
+      link: "https://invitaciones-interactivas-artevideos.github.io/Bodas-sobre1/"
+     },
+      { nombre: "Safari",
+      categoria: "infantiles",
+      imagen: "cover.png",
+      link: "https://invitaciones-interactivas-artevideos.github.io/PRIMER-A-O-SAFARI/"
+    },
+    { nombre: "Mickey",
+      categoria: "infantiles",
+      etiqueta: "animada",
+      imagen: "mickey.png",
+      link: "https://invitaciones-interactivas-artevideos.github.io/MICKEY/"
+     },
+    {
+      nombre: "Minnie",
+      categoria: "infantiles",
+      etiqueta: "animada",
+      imagen: "Minnie.png",
+      link: "https://invitaciones-interactivas-artevideos.github.io/minnie/"
+     },
+  ]
+};
+
+const tabsEl = document.getElementById("category-tabs");
+const gridEl = document.getElementById("invitation-grid");
+const titleEl = document.getElementById("catalog-title");
+const countEl = document.getElementById("catalog-count");
+const emptyEl = document.getElementById("empty-state");
+const topBtn = document.getElementById("back-to-top");
+let categoriaActual = "todas";
+
+function aplicarColores() {
+  const root = document.documentElement;
+  const colores = CONFIG.colores || {};
+  const variables = {
+    fondo: "--bg",
+    fondoSuperior: "--bg-2",
+    tarjeta: "--panel",
+    tarjetaSuave: "--panel-soft",
+    texto: "--text",
+    textoSuave: "--muted",
+    principal: "--accent",
+    secundario: "--accent-2",
+    textoBoton: "--button-text"
+  };
+
+  Object.entries(variables).forEach(([nombre, variable]) => {
+    if (colores[nombre]) root.style.setProperty(variable, colores[nombre]);
+  });
+}
+
+document.getElementById("brand-name").textContent = CONFIG.marca;
+document.getElementById("logo").src = CONFIG.logo;
+
+// Aplicar enlaces de contacto configurados
+document.getElementById("footer-whatsapp").href = CONFIG.whatsappLink;
+document.getElementById("footer-whatsapp-text").textContent = CONFIG.whatsappTexto;
+
+document.getElementById("instagram-footer").href = CONFIG.instagramLink;
+document.getElementById("instagram-footer-text").textContent = CONFIG.instagramTexto;
+
+function nombreCategoria(id) {
+  const categoria = CONFIG.categorias.find(item => item.id === id);
+  return categoria ? categoria.nombre : id;
+}
+
+function invitacionesFiltradas() {
+  if (categoriaActual === "todas") return CONFIG.invitaciones;
+  return CONFIG.invitaciones.filter(item => item.categoria === categoriaActual);
+}
+
+function crearTabs() {
+  tabsEl.innerHTML = "";
+  CONFIG.categorias.forEach(categoria => {
+    const boton = document.createElement("button");
+    boton.className = "category-tab";
+    boton.type = "button";
+    boton.textContent = categoria.nombre;
+    boton.dataset.category = categoria.id;
+    boton.addEventListener("click", () => {
+      categoriaActual = categoria.id;
+      renderCatalogo();
+      document.getElementById("catalogo").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+    tabsEl.appendChild(boton);
+  });
+}
+
+function crearTarjeta(item) {
+  const article = document.createElement("article");
+  article.className = "invite-card";
+  
+  // Condicional para verificar si existe y contiene texto la etiqueta
+  const etiquetaHTML = item.etiqueta ? `<span class="custom-tag">${item.etiqueta}</span>` : '';
+
+  article.innerHTML = `
+    <a class="preview-link" href="${item.link}" target="_blank" rel="noopener" aria-label="Probar demo de ${item.nombre}">
+      <span class="category-chip">${nombreCategoria(item.categoria)}</span>
+      ${etiquetaHTML}
+      <img src="${item.imagen}" alt="Vista previa de ${item.nombre}" loading="lazy">
+      <span class="preview-fallback">${item.nombre}</span>
+    </a>
+    <div class="card-info">
+      <h3 class="invite-title">${item.nombre}</h3>
+      <a class="demo-btn" href="${item.link}" target="_blank" rel="noopener">Probar demo</a>
+    </div>
+  `;
+
+  const imagen = article.querySelector("img");
+  imagen.addEventListener("error", () => {
+    article.querySelector(".preview-link").classList.add("image-error");
+  });
+
+  return article;
+}
+
+function renderCatalogo() {
+  const items = invitacionesFiltradas();
+  gridEl.innerHTML = "";
+
+  document.querySelectorAll(".category-tab").forEach(tab => {
+    tab.classList.toggle("active", tab.dataset.category === categoriaActual);
+  });
+
+  titleEl.textContent = nombreCategoria(categoriaActual);
+  countEl.textContent = `${items.length} modelo${items.length === 1 ? "" : "s"} disponible${items.length === 1 ? "" : "s"}`;
+  emptyEl.style.display = items.length ? "none" : "block";
+
+  items.forEach(item => gridEl.appendChild(crearTarjeta(item)));
+}
+
+window.addEventListener("scroll", () => {
+  topBtn.classList.toggle("visible", window.scrollY > 500);
+});
+
+topBtn.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+aplicarColores();
+crearTabs();
+renderCatalogo();
+</script>
+</body>
+</html>
