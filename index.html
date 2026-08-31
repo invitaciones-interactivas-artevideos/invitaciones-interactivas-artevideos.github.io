@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- OPTIMIZACIÓN SEO PARA GOOGLE -->
+<title>Invitaciones Digitales e Interactivas | 15 Años, Bodas y Cumpleaños | ARTEVIDEOS</title>
+<meta name="description" content="Catálogo de invitaciones digitales, web e interactivas en Uruguay. Ideales para cumpleaños de 15, bodas, fiestas infantiles y eventos. 10 años de experiencia diseñando recuerdos.">
+<meta name="keywords" content="invitaciones digitales, invitaciones interactivas, invitaciones web, invitaciones de 15 años, invitaciones de boda, cumpleaños, fiestas infantiles, tarjetas virtuales, videoinvitaciones, ARTEVIDEOS, Uruguay">
+<meta name="author" content="ARTEVIDEOS">
+<meta name="robots" content="index, follow">
+
+<!-- Etiquetas para redes sociales (Open Graph) -->
+<meta property="og:title" content="Invitaciones Digitales e Interactivas | ARTEVIDEOS">
+<meta property="og:description" content="Descubrí nuestro catálogo de invitaciones web para 15 años, bodas y cumpleaños infantiles. Interactivas, con música y confirmación de asistencia. 10 años de experiencia.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  /* PALETA CLARA Y ELEGANTE */
+  --bg: #faf7f5;          
+  --bg-2: #f0e8e6;        
+  --panel: #ffffff;       
+  --panel-soft: #f8f4f1;  
+  --text: #2d2426;        
+  --muted: #7a6e70;       
+  --line: rgba(0,0,0,0.08);
+  
+  --accent: #d27a8c;      
+  --accent-glow: rgba(210, 122, 140, 0.35);
+  --accent-2: #c89b5e;    
+  
+  --button-text: #ffffff;
+  --light-button: #2d2426;
+  --light-button-text: #ffffff;
+  --radius: 12px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: 
+    radial-gradient(circle at 15% 10%, color-mix(in srgb, var(--accent) 8%, transparent), transparent 40rem),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+  color: var(--text);
+  font-family: "Montserrat", sans-serif;
+}
+
+a {
+  color: inherit;
+}
+
+.site-shell {
+  width: min(1240px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+/* ============================
+   TOPBAR
+   ============================ */
+.topbar {
+  position: sticky;
+  top: 0;
+  height: 80px;
+  z-index: 30;
+  background: rgba(250, 247, 245, 0.85); 
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(20px);
+  display: flex;
+  align-items: center;
+}
+
+.topbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+}
+
+.brand-logo {
+  width: 64px; /* LOGO MÁS GRANDE EN ESCRITORIO */
+  height: 64px;
+  border-radius: 50%;
+  object-fit: contain;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.brand-name {
+  display: block;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.brand-subtitle {
+  display: block;
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.header-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.info-trigger-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid var(--line);
+  color: var(--text);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.info-trigger-btn:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--button-text);
+  box-shadow: 0 4px 15px var(--accent-glow);
+}
+
+/* ============================
+   HERO / BANNER
+   ============================ */
+.hero {
+  padding: 40px 0 20px;
+  text-align: center;
+}
+
+.experience-badge {
+  display: inline-block;
+  background: rgba(200, 155, 94, 0.15); 
+  color: var(--accent-2);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  border: 1px solid rgba(200, 155, 94, 0.3);
+}
+
+.hero h1 {
+  max-width: 850px;
+  margin: 0 auto 16px;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.5rem, 4vw, 2.8rem);
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.hero p {
+  max-width: 700px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+  line-height: 1.6;
+}
+
+/* ============================
+   BARRA DE CATEGORÍAS FIJA
+   ============================ */
+.category-bar {
+  position: sticky;
+  top: 80px;
+  z-index: 25;
+  padding: 16px 0;
+  background: rgba(250, 247, 245, 0.92);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid var(--line);
+}
+
+.category-tabs {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding-bottom: 2px;
+}
+
+.category-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.category-tab {
+  flex: 0 0 auto;
+  min-height: 40px;
+  padding: 0 20px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--panel);
+  color: var(--muted);
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+}
+
+.category-tab:hover {
+  border-color: rgba(0,0,0,0.2);
+  color: var(--text);
+}
+
+.category-tab.active {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--button-text);
+  box-shadow: 0 4px 15px var(--accent-glow);
+}
+
+/* ============================
+   CATÁLOGO Y TARJETAS
+   ============================ */
+.catalog {
+  padding: 30px 0 60px;
+}
+
+.catalog-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.catalog-title {
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: 700;
+}
+
+.invitation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 20px;
+  align-items: start;
+}
+
+.invite-card {
+  min-width: 0;
+  background: var(--panel);
+  border-radius: var(--radius);
+  padding: 10px;
+  border: 1px solid var(--line);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.invite-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent);
+  box-shadow: 0 16px 35px rgba(0,0,0,0.12);
+}
+
+.preview-link {
+  position: relative;
+  display: block;
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
+  border-radius: calc(var(--radius) - 4px);
+  background: var(--panel-soft);
+  text-decoration: none;
+}
+
+.preview-link img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.preview-link:hover img {
+  transform: scale(1.05);
+}
+
+.preview-fallback {
+  position: absolute;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  color: var(--muted);
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.preview-link.image-error img {
+  display: none;
+}
+
+.preview-link.image-error .preview-fallback {
+  display: flex;
+}
+
+.custom-tag {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  z-index: 3;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--button-text);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.card-info {
+  padding: 12px 6px 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.invite-title {
+  margin: 0;
+  color: var(--text);
+  font-size: 0.9rem;
+  line-height: 1.35;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center; /* Centrado extra ya que se quitó el botón */
+}
+
+.empty-state {
+  display: none;
+  padding: 60px 20px;
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+  color: var(--muted);
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+/* ============================
+   HISTORIA (NUEVA SECCIÓN)
+   ============================ */
+.history-section {
+  padding: 20px 0 60px;
+}
+
+.history-card {
+  max-width: 850px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.5); /* Efecto vidrio (Glassmorphism) */
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(200, 155, 94, 0.25);
+  border-radius: var(--radius);
+  padding: 50px 40px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+}
+
+.history-card h3 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  color: var(--accent-2);
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
+.history-card p {
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.history-card p:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================
+   MODAL (QUÉ INCLUYE)
+   ============================ */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5); 
+  backdrop-filter: blur(6px);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  padding: 20px;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-container {
+  background: var(--panel);
+  border: none;
+  border-radius: var(--radius);
+  width: min(700px, 100%);
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 32px;
+  position: relative;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal-container {
+  transform: translateY(0);
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(0,0,0,0.05);
+  border: none;
+  color: var(--text);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.modal-close:hover {
+  background: var(--accent);
+  color: var(--button-text);
+}
+
+.modal-body h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
+  margin-top: 0;
+  color: var(--text);
+}
+
+.modal-body h4 {
+  color: var(--accent-2);
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 24px;
+  margin-bottom: 10px;
+}
+
+.modal-body p {
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+/* ============================
+   FOOTER Y BOTONES DE CONTACTO
+   ============================ */
+.footer {
+  padding: 50px 0 60px;
+  border-top: 1px solid var(--line);
+  background: var(--bg-2);
+  text-align: center;
+}
+
+.footer h3 {
+  color: var(--text);
+  margin-bottom: 24px;
+  font-size: 1.2rem;
+  font-family: "Playfair Display", serif;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+/* BOTONES ESTILO VIDRIO CÁLIDO */
+.contact-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  text-transform: uppercase;
+  
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(8px);
+  color: var(--text);
+  border: 1px solid rgba(200, 155, 94, 0.4); /* Dorado sutil */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+  transition: all 0.3s ease;
+}
+
+.contact-btn:hover {
+  background: var(--panel); /* Se vuelve blanco sólido al hacer hover */
+  color: var(--accent-2);
+  border-color: var(--accent-2);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(200, 155, 94, 0.15);
+}
+
+.back-to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 40;
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--button-text);
+  font-size: 1.3rem;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(210, 122, 140, 0.4);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(12px);
+  transition: all 0.2s ease;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+@media (min-width: 1240px) {
+  .invitation-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .site-shell {
+    width: min(100% - 24px, 1240px);
+  }
+  
+  .topbar {
+    height: 70px;
+  }
+  
+  .category-bar {
+    top: 70px;
+  }
+  
+  .invitation-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+  
+  .brand-logo {
+    width: 52px; /* LOGO MÁS GRANDE EN MÓVILES */
+    height: 52px;
+  }
+  
+  .brand-name {
+    font-size: 1.1rem;
+  }
+  
+  .info-trigger-btn {
+    padding: 8px 12px;
+  }
+  
+  .info-trigger-btn .btn-text {
+    display: none; 
+  }
+  
+  .info-trigger-btn::after {
+    content: attr(data-mobile); 
+    font-size: 0.7rem;
+    margin-left: 4px;
+  }
+  
+  .history-card {
+    padding: 30px 20px;
+  }
+}
+
+@media (min-width: 721px) {
+  .info-trigger-btn::after {
+    display: none;
+  }
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="site-shell topbar-inner">
+    <a href="#" class="brand">
+      <img class="brand-logo" id="logo" src="logo.png" alt="Logo de ARTEVIDEOS">
+      <div class="brand-text">
+        <span class="brand-name" id="brand-name"></span>
+        <span class="brand-subtitle">Invitaciones Interactivas</span>
+      </div>
+    </a>
+    
+    <div class="header-actions">
+      <button class="info-trigger-btn" id="open-info-modal" type="button" data-mobile="Info">
+        <span class="icon">✨</span><span class="btn-text">¿Qué incluye?</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="site-shell">
+      <div class="experience-badge">🎉 10 años festejando juntos</div>
+      <h1>Elegí la invitación ideal y explorá la experiencia web interactiva.</h1>
+      <p>Diseños originales, animados y totalmente personalizados para que tu cumpleaños de 15, boda o evento comience desde el primer clic.</p>
+    </div>
+  </section>
+
+  <nav class="category-bar" aria-label="Categorías de invitaciones">
+    <div class="site-shell">
+      <div class="category-tabs" id="category-tabs"></div>
+    </div>
+  </nav>
+
+  <section class="catalog" id="catalogo">
+    <div class="site-shell">
+      <div class="catalog-head">
+        <h2 class="catalog-title" id="catalog-title">Todas</h2>
+      </div>
+      <div class="invitation-grid" id="invitation-grid"></div>
+      <div class="empty-state" id="empty-state">Todavía no hay modelos cargados en esta categoría.</div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN MI HISTORIA (Antes del footer) -->
+  <section class="history-section">
+    <div class="site-shell">
+      <div class="history-card">
+        <h3>10 años creando emociones</h3>
+        <p>
+          Detrás de ARTEVIDEOS trabajamos con la misma pasión y dedicación desde hace más de una década. Empezamos nuestro camino creando emotivos videos de vida temáticos para 15 años, bodas y primeros añitos.
+        </p>
+        <p>
+          Con el tiempo, la tecnología avanzó y nos adaptamos para ofrecer siempre lo mejor. Tuvimos el enorme orgullo de ser los <strong>pioneros en Uruguay</strong> en diseñar videoinvitaciones y, hoy en día, incorporamos invitaciones web interactivas.
+        </p>
+        <p>
+          Nuestro  objetivo es acompañarte en cada paso para que tu evento sea único, moderno y mágico desde el primer clic. ¡Gracias por confiar en nuestro trabajo para tus mejores recuerdos!
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- MODAL DE QUÉ INCLUYE -->
+<div class="modal-overlay" id="info-modal" aria-modal="true" role="dialog">
+  <div class="modal-container">
+    <button class="modal-close close-modal-btn" type="button" aria-label="Cerrar ventana">&times;</button>
+    <div class="modal-body">
+      <h3>Detalles de las Invitaciones</h3>
+      
+      <h4>La invitación estándar incluye:</h4>
+      <p>
+        🎵 Música de fondo personalizada.<br>
+        ⏳ Cuenta regresiva hasta el gran día.<br>
+        📍 Ubicación con GPS y acceso directo a Google Maps.<br>
+        📷 Galería de 4 fotografías.<br>
+        ✅ Confirmación de asistencia mediante formulario, con listado de invitados y posibilidad de indicar restricciones alimenticias.<br>
+        🎁 Sección de regalos con datos para transferencia bancaria o regalo colectivo.
+      </p>
+
+      <h4>Además, podés agregar:</h4>
+      <p>
+        ✨ Galería ampliada de hasta 12 fotografías.<br>
+        📸 Álbum compartido para que tus invitados suban las fotos y videos del evento.<br>
+        🎶 Playlist colaborativa mediante Spotify o formulario de sugerencias.<br>
+        📱 Enlace a tu cuenta de Instagram y hashtag personalizado.<br>
+        💬 Cualquier información adicional que quieras compartir con tus invitados, adaptando la invitación a tu estilo.
+      </p>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="site-shell">
+    <h3>¿Tenés dudas o querés encargar la tuya?</h3>
+    <div class="footer-links">
+      <a id="footer-whatsapp" href="#" target="_blank" rel="noopener" class="contact-btn">
+        <span id="footer-whatsapp-text">Pedidos por Whatsapp</span>
+      </a>
+      <a id="instagram-footer" href="#" target="_blank" rel="noopener" class="contact-btn">
+        <span id="instagram-footer-text">Instagram</span>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" id="back-to-top" type="button" aria-label="Volver arriba">&uarr;</button>
+
+<script>
+const CONFIG = {
+  marca: "ARTEVIDEOS",
+  logo: "logo.png",
+
+  whatsappTexto: "Pedidos por Whatsapp 096116630",
+  whatsappLink: "https://wa.me/59896116630",
+
+  instagramTexto: "Instagram",
+  instagramLink: "https://www.instagram.com/invitaciones_artevideos/",
+
+  categorias: [
+    { id: "todas", nombre: "Todas" },
+    { id: "15", nombre: "15 años" },
+    { id: "bodas", nombre: "Bodas" },
+    { id: "infantiles", nombre: "Infantiles" }
+  ],
+
+  invitaciones: [
+    {
+      nombre: "15 Años Mariposas-1",
+      categoria: "15",
+      etiqueta: "Animada",
+      imagen: "15 mariposas doradas.png",
+      link: "https://invitaciones-interactivas-artevideos.github.io/15-modelo-3-mariposas-doradas/"
+    },
+    {
+      nombre: "15 años Cenicienta",
+      categoria: "15",
+      etiqueta: "Animada",
+      imagen: "15 cenicienta.png",
+      link: "https://invitaciones-interactivas-artevideos.github.io/cenicienta/"
+    },
+    {
+      nombre: "15 Años Mariposas-2",
+      categoria: "15",
+      etiqueta: "Animada",
+      imagen: "15 mariposas violeta.png",
+      link: "https://invitaciones-interactivas-artevideos.github.io/15-modelo-5-mariposas-fondo-azul-2/"
+    },
+    {
+      nombre: "15 Años Mariposas-3",
+      categoria: "15",
+      etiqueta: "Animada", 
+      imagen: "15 mariposas celestes.png",
+      link: "https://invitaciones-interactivas-artevideos.github.io/15-modelo-4-mariposas-celeste-amarillas/"
+    },
+     {
+      nombre: "15 Años Fotografía",
+      categoria: "15",
+      imagen: "15 foto1.png",
+      link: "https://invitaciones-interactivas-artevideos.github.io/15-a-os-foto/"
+    },
+     {
+      nombre: "15 Años Azul",
+      categoria: "15",
+      imagen: "azul2.png",
+      link: "https://invitaciones-interactivas-artevideos.github.io/15-azul/"
+    },
+    {
+      nombre: "15 Años Stray Kids",
+      categoria: "15",
+      etiqueta: "Animada", 
+      imagen: "15 straykids.png",
+      link: "https://invitaciones-interactivas-artevideos.github.io/15-straykids/"
+    },
+    {
+      nombre: "15 Años La Princesa y el sapo",
+      categoria: "15",
+      etiqueta: "Animada", 
+      imagen: "pysapo.png",
+      link: "https://invitaciones-interactivas-artevideos.github.io/Princesa-y-sapo-/"
+     },
+      {
+      nombre: "15 Años Rapunzel",
+      categoria: "15",
+      etiqueta: "Animada", 
+      imagen: "rapu.png",
+      link: "https://invitacionesartevideos.uy/rapunzel-demo/"
+      },
+      {
+      nombre: "15 Años vestido rosa",
+      categoria: "15",
+      etiqueta: "Animada", 
+      imagen: "vestido.png",
+      link: "http://invitacionesartevideos.uy/Vestido-rosado-con-sobre/"
+      },
+      {
+      nombre: "15 Años vestido rosa 2",
+      categoria: "15",
+      imagen: "vestidoespalda.png",
+      link: "https://invitacionesartevideos.uy/DEMO-LIENZO-2/" 
+      },
+    
+   {
+      nombre: "15 Años Violeta y blanco",
+      categoria: "15",
+      imagen: "violeta.png",
+      link: "https://invitacionesartevideos.uy/DEMO-15-violeta-/" 
+      },
+    
+    {
+      nombre: "15 Años Floral-1",
+      categoria: "15",
+      etiqueta: "Animada", 
+      imagen: "15 floral 2.png",
+      link: "https://invitaciones-interactivas-artevideos.github.io/15-modelo1-flores-del-cerezo/"
+    },
+    {
+      nombre: "15 Años Floral-2",
+      categoria: "15",
+      etiqueta: "Animada", 
+      imagen: "15 floral 1.png",
+      link: "https://invitaciones-interactivas-artevideos.github.io/15-modelo2-rosas/"
+    },
+     {
+      nombre: "15 Años Azul mariposas y flores",
+      categoria: "15",
+      etiqueta: "Animada", 
+      imagen: "azul.png",
+      link: "http://invitacionesartevideos.uy/DEMO-15-azul-sobre-flores-y-mariposas-/"
+    },
+    {
+      nombre: "15 Años Sobre-1",
+      categoria: "15",
+      imagen: "sobrerosa.png",
+      link: "https://invitaciones-interactivas-artevideos.github.io/15-sobre/#evento"
+    },
+    {
+      nombre: "15 Años Sobre-2",
+      categoria: "15",
+      imagen: "sobrelavanda.png",
+      link: "https://invitaciones-interactivas-artevideos.github.io/15-sobre-2/"
+    },
+    {
+      nombre: "15 Años rosas 2",
+      categoria: "15",
+      etiqueta: "Animada", 
+      imagen: "rosas.png",
+      link: "https://invitaciones-interactivas-artevideos.github.io/15-a-os-rosas/"
+    },
+    {
+      nombre: "15 años editorial",
+      categoria: "15",
+      imagen: "15edi.png",
+      link: "https://invitaciones-interactivas-artevideos.github.io/15-papel-rasgado-/"
+    },
+    {
+      nombre: "15 años Fiesta",
+      categoria: "15",
+      imagen: "fiesta.png",
+      link: "https://invitacionesartevideos.uy/DEMO-15-fiesta/"
+    },
+    {
+      nombre: "15 años Black and Rose",
+      categoria: "15",
+      imagen: "negrorosa.png",
+      link: "https://invitacionesartevideos.uy/Demo-15-negro-y-rosa-gold/"
+    },
+    {
+      nombre: "15 años azul celeste",
+      categoria: "15",
+      imagen: "azulceleste.png",
+      link: "https://invitacionesartevideos.uy/DEMO-15-negro-azul-celeste/"
+      },
+    {
+      nombre: "Boda-1",
+      categoria: "bodas",
+      imagen: "bodas 1.png",
+      link: "https://invitaciones-interactivas-artevideos.github.io/Bodas-invitacion-interactiva/"
+    },
+   {
+      nombre: "Boda-dorado",
+      categoria: "bodas",
+      etiqueta: "Animada", 
+      imagen: "bodas3.jpeg",
+      link: "https://invitaciones-interactivas-artevideos.github.io/bodas-fondo-dorado/"
+    },
+    {
+      nombre: "Boda-2",
+      categoria: "bodas",
+      imagen: "boda2.png",
+      link: "https://invitaciones-interactivas-artevideos.github.io/bodas-invitacion-interactiva-2/"
+    },
+    {
+      nombre: "Boda-sobre flores",
+      categoria: "bodas",
+      imagen: "crema.png",
+      link: "https://invitacionesartevideos.uy/DEMO-BODAS-sobre-flores-crema/"
+    },
+    {
+      nombre: "Boda-Hojas",
+      categoria: "bodas",
+      etiqueta: "Animada", 
+      imagen: "hojas.png",
+      link: "https://invitaciones-interactivas-artevideos.github.io/boda-hojas/"
+    },
+    {
+      nombre: "Boda-rosas",
+      categoria: "bodas",
+      etiqueta: "Animada", 
+      imagen: "Rosas1.png",
+      link: "https://invitaciones-interactivas-artevideos.github.io/bodas-floral/"
+    },
+    {
+      nombre: "Boda-flores3",
+      categoria: "bodas",
+      etiqueta: "", 
+      imagen: "floral3.png",
+      link: "https://invitacionesartevideos.uy/Demo-bodas-floral3/"
+    },
+    
+     {
+      nombre: "Boda-Editorial",
+      categoria: "bodas",
+      etiqueta: "", 
+      imagen: "edito.png",
+      link: "https://invitaciones-interactivas-artevideos.github.io/Bodas-Papel-rasgado-/"
+    },
+     { 
+      nombre: "Boda-sobre 1",
+      categoria: "bodas",
+      imagen: "sobre1.png",
+      link: "https://invitaciones-interactivas-artevideos.github.io/Bodas-sobre1/"
+     },
+    
+    { 
+      nombre: "Boda-sobre 2",
+      categoria: "bodas",
+      imagen: "bodas sobre arena.png",
+      link: "https://invitacionesartevideos.uy/DEMO-bodas-sobre-champagne-/"
+     },
+     { 
+      nombre: "Boda- verde",
+      categoria: "bodas",
+      imagen: "bodasverde.png",
+      link: "https://invitacionesartevideos.uy/DEMO-bodas-verde-1/"
+     },
+    { 
+      nombre: "Boda- floral eucalipto",
+      categoria: "bodas",
+      imagen: "bodafloral4.png",
+      link: "https://invitacionesartevideos.uy/DEMO-bodas-hojas-eucaliptos-/"
+     },
+
+    
+    
+     { 
+      nombre: "Safari",
+      categoria: "infantiles",
+      imagen: "cover.png",
+      link: "https://invitacionesartevideos.uy/DEMO-safari-2/"
+    },
+    { 
+      nombre: "Mickey",
+      categoria: "infantiles",
+      etiqueta: "Animada",
+      imagen: "mickey.png",
+      link: "https://invitaciones-interactivas-artevideos.github.io/MICKEY/"
+     },
+    {
+      nombre: "Minnie",
+      categoria: "infantiles",
+      etiqueta: "Animada",
+      imagen: "Minnie.png",
+      link: "https://invitaciones-interactivas-artevideos.github.io/minnie/"
+     },
+     {
+      nombre: "Unicornios",
+      categoria: "infantiles",
+      etiqueta: "Animada",
+      imagen: "uni.png",
+      link: "https://invitacionesartevideos.uy/DEMO-unicornios/"
+     },
+     {
+      nombre: "El Principito",
+      categoria: "infantiles",
+      etiqueta: "Animada",
+      imagen: "principito.png",
+      link: "https://invitacionesartevideos.uy/DEMO-el-principito/"
+     }
+  ]
+};
+
+const tabsEl = document.getElementById("category-tabs");
+const gridEl = document.getElementById("invitation-grid");
+const titleEl = document.getElementById("catalog-title");
+const emptyEl = document.getElementById("empty-state");
+const topBtn = document.getElementById("back-to-top");
+
+const infoModal = document.getElementById("info-modal");
+const openInfoBtn = document.getElementById("open-info-modal");
+
+let categoriaActual = "todas";
+
+document.getElementById("brand-name").textContent = CONFIG.marca;
+document.getElementById("logo").src = CONFIG.logo;
+document.getElementById("footer-whatsapp").href = CONFIG.whatsappLink;
+document.getElementById("footer-whatsapp-text").textContent = CONFIG.whatsappTexto;
+document.getElementById("instagram-footer").href = CONFIG.instagramLink;
+document.getElementById("instagram-footer-text").textContent = CONFIG.instagramTexto;
+
+function nombreCategoria(id) {
+  const categoria = CONFIG.categorias.find(item => item.id === id);
+  return categoria ? categoria.nombre : id;
+}
+
+function invitacionesFiltradas() {
+  if (categoriaActual === "todas") return CONFIG.invitaciones;
+  return CONFIG.invitaciones.filter(item => item.categoria === categoriaActual);
+}
+
+function crearTabs() {
+  tabsEl.innerHTML = "";
+  CONFIG.categorias.forEach(categoria => {
+    const boton = document.createElement("button");
+    boton.className = "category-tab";
+    boton.type = "button";
+    boton.textContent = categoria.nombre;
+    boton.dataset.category = categoria.id;
+    boton.addEventListener("click", () => {
+      categoriaActual = categoria.id;
+      renderCatalogo();
+    });
+    tabsEl.appendChild(boton);
+  });
+}
+
+function crearTarjeta(item) {
+  const article = document.createElement("article");
+  article.className = "invite-card";
+  
+  const etiquetaHTML = item.etiqueta ? `<span class="custom-tag">${item.etiqueta}</span>` : '';
+
+  article.innerHTML = `
+    <a class="preview-link" href="${item.link}" target="_blank" rel="noopener" aria-label="Ver invitación de ${item.nombre}">
+      ${etiquetaHTML}
+      <img src="${item.imagen}" alt="Vista previa de ${item.nombre}" loading="lazy">
+      <span class="preview-fallback">${item.nombre}</span>
+    </a>
+    <div class="card-info">
+      <h3 class="invite-title" title="${item.nombre}">${item.nombre}</h3>
+    </div>
+  `;
+
+  const imagen = article.querySelector("img");
+  imagen.addEventListener("error", () => {
+    article.querySelector(".preview-link").classList.add("image-error");
+  });
+
+  return article;
+}
+
+function renderCatalogo() {
+  const items = invitacionesFiltradas();
+  gridEl.innerHTML = "";
+
+  document.querySelectorAll(".category-tab").forEach(tab => {
+    tab.classList.toggle("active", tab.dataset.category === categoriaActual);
+  });
+
+  titleEl.textContent = nombreCategoria(categoriaActual);
+  emptyEl.style.display = items.length ? "none" : "block";
+
+  items.forEach(item => gridEl.appendChild(crearTarjeta(item)));
+}
+
+// Lógica del Modal Info
+openInfoBtn.addEventListener("click", () => infoModal.classList.add("active"));
+infoModal.querySelector(".close-modal-btn").addEventListener("click", () => {
+  infoModal.classList.remove("active");
+});
+infoModal.addEventListener("click", (e) => {
+  if (e.target === infoModal) infoModal.classList.remove("active");
+});
+
+window.addEventListener("scroll", () => {
+  topBtn.classList.toggle("visible", window.scrollY > 500);
+});
+
+topBtn.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+crearTabs();
+renderCatalogo();
+</script>
+</body>
+</html>
