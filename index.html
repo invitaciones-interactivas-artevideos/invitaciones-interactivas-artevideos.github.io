@@ -11,10 +11,13 @@
 <meta name="author" content="ARTEVIDEOS">
 <meta name="robots" content="index, follow">
 
-<!-- Etiquetas para redes sociales (Open Graph) -->
+<!-- Etiquetas para redes sociales (Open Graph) y WhatsApp -->
 <meta property="og:title" content="Invitaciones Digitales e Interactivas | ARTEVIDEOS">
 <meta property="og:description" content="Descubrí nuestro catálogo de invitaciones web para 15 años, bodas y cumpleaños infantiles. Interactivas, con música y confirmación de asistencia. 10 años de experiencia.">
 <meta property="og:type" content="website">
+<!-- LÍNEAS AGREGADAS PARA LA VISTA PREVIA CON LA IMAGEN PREVIEW.JPG -->
+<meta property="og:image" content="preview.jpg">
+<meta property="og:image:alt" content="Vista previa de ARTEVIDEOS">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
@@ -75,7 +78,7 @@ a {
 .topbar {
   position: sticky;
   top: 0;
-  height: 80px;
+  height: 100px; /* AUMENTADO PARA DAR ESPACIO AL LOGO MÁS GRANDE */
   z-index: 30;
   background: rgba(250, 247, 245, 0.85); 
   border-bottom: 1px solid var(--line);
@@ -87,7 +90,8 @@ a {
 .topbar-inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center; /* CENTRADO EN PANTALLA */
+  position: relative; /* NECESARIO PARA POSICIONAR EL BOTÓN A LA DERECHA */
   width: 100%;
 }
 
@@ -99,8 +103,8 @@ a {
 }
 
 .brand-logo {
-  width: 64px; /* LOGO MÁS GRANDE EN ESCRITORIO */
-  height: 64px;
+  width: 80px; /* LOGO MÁS GRANDE EN ESCRITORIO (Antes 64px) */
+  height: 80px; /* LOGO MÁS GRANDE EN ESCRITORIO */
   border-radius: 50%;
   object-fit: contain;
   background: #ffffff;
@@ -127,6 +131,8 @@ a {
 }
 
 .header-actions {
+  position: absolute; /* MANTIENE EL BOTÓN A LA DERECHA SIN AFECTAR EL CENTRADO */
+  right: 0;
   display: flex;
   gap: 10px;
   align-items: center;
@@ -200,7 +206,7 @@ a {
    ============================ */
 .category-bar {
   position: sticky;
-  top: 80px;
+  top: 100px; /* ACTUALIZADO PARA COINCIDIR CON EL HEADER */
   z-index: 25;
   padding: 16px 0;
   background: rgba(250, 247, 245, 0.92);
@@ -370,7 +376,7 @@ a {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  text-align: center; /* Centrado extra ya que se quitó el botón */
+  text-align: center; 
 }
 
 .empty-state {
@@ -599,11 +605,11 @@ a {
   }
   
   .topbar {
-    height: 70px;
+    height: 90px; /* AUMENTADO PARA MÓVIL (Antes 70px) */
   }
   
   .category-bar {
-    top: 70px;
+    top: 90px; /* ACTUALIZADO PARA COINCIDIR CON HEADER EN MÓVIL */
   }
   
   .invitation-grid {
@@ -612,8 +618,8 @@ a {
   }
   
   .brand-logo {
-    width: 52px; /* LOGO MÁS GRANDE EN MÓVILES */
-    height: 52px;
+    width: 65px; /* LOGO MÁS GRANDE EN MÓVILES (Antes 52px) */
+    height: 65px;
   }
   
   .brand-name {
